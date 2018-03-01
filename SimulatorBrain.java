@@ -23,7 +23,7 @@ public class SimulatorBrain {
 
   public void run() {
     while (timeStepsTaken < maxTimeSteps) {
-      for (specificCar : vehicles) {
+      for (Vehicle specificCar : vehicles) {
         if (!specificCar.driving) {
           // ASSIGN A RIDE
           if (listOfRides.size() > 0) {
