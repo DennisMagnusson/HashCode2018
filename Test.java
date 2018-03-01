@@ -7,6 +7,7 @@ import java.nio.*;
 public class Test {
 
   public static void main(String[] args) {
+
     if(args.length == 0) {
       System.out.println("READ A FILE YOU IDIOT");
     }
@@ -21,7 +22,7 @@ public class Test {
       br.close();
     } catch(Exception e) {}
 
-
+    String firstLine = line.remove(0);
     ArrayList<Vehicle> data = new ArrayList<>();
     for(String line : lines) {
       ArrayList<Integer> a = new ArrayList<>();
