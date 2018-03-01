@@ -22,8 +22,8 @@ public class Test {
       br.close();
     } catch(Exception e) {}
 
-    String firstLine = line.remove(0);
-    ArrayList<Vehicle> data = new ArrayList<>();
+    String firstLine = lines.remove(0);
+    ArrayList<Ride> data = new ArrayList<>();
     for(String line : lines) {
       ArrayList<Integer> a = new ArrayList<>();
       String[] l = line.split(" ");
@@ -35,7 +35,7 @@ public class Test {
       int earliestStart = Integer.parseInt(l[4]);
       int latestFinish = Integer.parseInt(l[5]);
 
-      Vehicle v = new Vehicle(startx, starty, goalx, goaly, earliestStart);
+      Ride v = new Ride(startx, starty, goalx, goaly, earliestStart, latestFinish);
       
       data.add(v);
     }
