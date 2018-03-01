@@ -48,6 +48,9 @@ public class Test {
     int bonus = Integer.parseInt(firstLineInts[4]);
     int timeSteps = Integer.parseInt(firstLineInts[5]);
 
+    SimulatorBrain brain = new SimulatorBrain(numVehicles, data, timeSteps);
+
+
     //writeToFile(a); 
   }
 
