@@ -7,7 +7,7 @@ public class Vehicle {
     posY = 0;
   }
 
-  public void assignGoal(int goalX, int goalY, earliestStart) {
+  public void assignGoal(int goalX, int goalY, int earliestStart) {
     stepsNeeded = Math.abs(goalX - posX) + Math.abs(goalY - posY);
     posX = goalX;
     posY = goalY;
