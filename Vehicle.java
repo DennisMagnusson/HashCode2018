@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Vehicle {
   public int posX, posY, stepsNeeded;
   public Ride currentRide;
@@ -5,12 +7,20 @@ public class Vehicle {
   public boolean driving = false;
   public boolean gettingToStart;
 
+  public ArrayList<Integer> history; // the index of the ride that this vehicle drove
+
   public Vehicle() {
     posX = 0;
     posY = 0;
   }
 
   public void assignRide(Ride newRide) {
+    // add the ride to history if you have not already done so
+    if (!driving) {
+      history.add(newRide.index);
+    }
+
+
     currentRide = newRide;
     this.driving = true;
 
