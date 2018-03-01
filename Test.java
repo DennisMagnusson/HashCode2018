@@ -34,13 +34,6 @@ public class Test {
       
       data.add(v);
     }
-    ArrayList<Integer>[] a = new ArrayList[lines.size()];
-    for(int i = 0; i < lines.size(); i++) {
-      a[i] = new ArrayList<>();
-      a[i].add(3);
-      a[i].add(14);
-    }
-
 
     //writeToFile(a); 
   }
