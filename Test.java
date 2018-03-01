@@ -27,7 +27,6 @@ public class Test {
       ArrayList<Integer> a = new ArrayList<>();
       String[] l = line.split(" ");
 
-      Vehicle v = new Vehicle();
       int startx = Integer.parseInt(l[0]);
       int starty = Integer.parseInt(l[1]);
       int goalx = Integer.parseInt(l[2]);
@@ -35,7 +34,7 @@ public class Test {
       int earliestStart = Integer.parseInt(l[4]);
       int latestFinish = Integer.parseInt(l[5]);
 
-      v.assignRide(startx, starty, goalx, goaly, earliestStart);
+      Vehicle v = new Vehicle(startx, starty, goalx, goaly, earliestStart);
       
       data.add(v);
     }
