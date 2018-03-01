@@ -61,11 +61,14 @@ public class SimulatorBrain {
               double currentRewardPerTimeStep = (double)currentReward / (double)currentTimeTaken;
               rewardPerTimeStep.add(currentRewardPerTimeStep);
 
-              currentReward += rewardOfRide(specificCar, 1, timeStepsTaken + currentTimeTaken);
 
               ridesConsidered = new ArrayList<>();
               ridesConsidered.add(i);
+
+              currentReward += rewardOfRide(specificCar, 2, timeStepsTaken + currentTimeTaken);
+
               rewardsOfRides.add(currentReward);
+
             }
 
 
