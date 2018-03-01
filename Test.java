@@ -34,7 +34,25 @@ public class Test {
       
       data.add(v);
     }
-    System.out.println(data);
+    ArrayList<Integer>[] a = new ArrayList[lines.size()];
+    for(int i = 0; i < lines.size(); i++) {
+      a[i] = new ArrayList<>();
+      a[i].add(3);
+      a[i].add(14);
+    }
+
+
+    //writeToFile(a); 
+  }
+
+
+  public static void writeToFile(ArrayList<Integer>[] a) {
+    for(ArrayList<Integer> k: a) {
+      for(int i : k) {
+        System.out.print(i+" ");
+      }
+      System.out.println();
+    }
   }
 
 }
