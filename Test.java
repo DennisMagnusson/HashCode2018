@@ -22,8 +22,8 @@ public class Test {
       br.close();
     } catch(Exception e) {}
 
-    String firstLine = line.remove(0);
-    ArrayList<Vehicle> data = new ArrayList<>();
+    String firstLine = lines.remove(0);
+    ArrayList<Ride> data = new ArrayList<>();
     for(String line : lines) {
       ArrayList<Integer> a = new ArrayList<>();
       String[] l = line.split(" ");
@@ -35,10 +35,18 @@ public class Test {
       int earliestStart = Integer.parseInt(l[4]);
       int latestFinish = Integer.parseInt(l[5]);
 
-      Vehicle v = new Vehicle(startx, starty, goalx, goaly, earliestStart);
+      Ride v = new Ride(startx, starty, goalx, goaly, earliestStart, latestFinish);
       
       data.add(v);
     }
+
+    String[] firstLineInts = firstLine.split(" ");
+    int rows = Integer.parseInt(firstLineInts[0]);
+    int cols = Integer.parseInt(firstLineInts[1]);
+    int numVehicles = Integer.parseInt(firstLineInts[2]);
+    int numRides = Integer.parseInt(firstLineInts[3]);
+    int bonus = Integer.parseInt(firstLineInts[4]);
+    int timeSteps = Integer.parseInt(firstLineInts[5]);
 
     //writeToFile(a); 
   }
