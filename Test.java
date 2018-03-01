@@ -51,17 +51,23 @@ public class Test {
 
     SimulatorBrain brain = new SimulatorBrain(numVehicles, data, timeSteps);
 
+    
+    ArrayList<Integer>[] e = new ArrayList[numVehicles]; 
+    for(int i = 0; i < numVehicles; i++) {
+      e[i] = brain.vehicles[i].history;
+    }
 
-    //writeToFile(a); 
+
+    writeToFile(e); 
   }
 
 
   public static void writeToFile(ArrayList<Integer>[] a) {
     int q = 1;
     for(ArrayList<Integer> k: a) {
-      System.out.print(q+" ");
+      System.out.print(k.size());
       for(int i : k) {
-        System.out.print(i+" ");
+        System.out.print(" "+i);
       }
       q++;
       System.out.println();
