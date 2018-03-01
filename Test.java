@@ -28,9 +28,14 @@ public class Test {
       String[] l = line.split(" ");
 
       Vehicle v = new Vehicle();
-      v.posX = Integer.parseInt(l[0]);
-      v.posY = Integer.parseInt(l[1]);
-      v.assignGoal(Integer.parseInt(l[2]), Integer.parseInt(l[3]), Integer.parseInt(l[4]));
+      int startx = Integer.parseInt(l[0]);
+      int starty = Integer.parseInt(l[1]);
+      int goalx = Integer.parseInt(l[2]);
+      int goaly = Integer.parseInt(l[3]);
+      int earliestStart = Integer.parseInt(l[4]);
+      int latestFinish = Integer.parseInt(l[5]);
+
+      v.assignRide(startx, starty, goalx, goaly, earliestStart);
       
       data.add(v);
     }
