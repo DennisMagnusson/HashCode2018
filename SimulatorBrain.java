@@ -41,11 +41,8 @@ public class SimulatorBrain {
                 lowestIndex = i;
               }
             }
-
-            //specificCar.assignRide(listOfRides.get(0));
             specificCar.assignRide(listOfRides.get(lowestIndex));
             listOfRides.remove(lowestIndex);
-
           }
         }
         if (specificCar.driving) {

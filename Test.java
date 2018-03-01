@@ -57,7 +57,6 @@ public class Test {
       e[i] = brain.vehicles[i].history;
     }
 
-
     writeToFile(e); 
   }
 

@@ -8,6 +8,7 @@ public class Ride implements Comparable<Ride>{
     this.goalY = goalY;
     this.earliestStart = earliestStart;
     this.latestFinish = latestFinish;
+    this.index = index;
   }
 
   @Override
