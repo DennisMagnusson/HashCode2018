@@ -49,7 +49,7 @@ public class Test {
     int bonus = Integer.parseInt(firstLineInts[4]);
     int timeSteps = Integer.parseInt(firstLineInts[5]);
 
-    SimulatorBrain brain = new SimulatorBrain(numVehicles, data, timeSteps);
+    SimulatorBrain brain = new SimulatorBrain(numVehicles, data, timeSteps, bonus);
 
     
     ArrayList<Integer>[] e = new ArrayList[numVehicles]; 
