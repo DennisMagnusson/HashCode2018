@@ -1,4 +1,4 @@
-public class Ride {
+public class Ride implements Comparable<Ride>{
   public int startX, startY, goalX, goalY, earliestStart, latestFinish;
 
   public Ride(int startX, int startY, int goalX, int goalY, int earliestStart, int latestFinish) {
@@ -8,5 +8,10 @@ public class Ride {
     this.goalY = goalY;
     this.earliestStart = earliestStart;
     this.latestFinish = latestFinish;
+  }
+
+  @Override
+  public int compareTo(Ride otherRide) {
+    return this.earliestStart - otherRide.earliestStart;
   }
 }
