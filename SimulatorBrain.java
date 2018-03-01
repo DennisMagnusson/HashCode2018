@@ -54,7 +54,7 @@ public class SimulatorBrain {
               int distanceOfTravel = Math.abs(listOfRides.get(i).goalX - listOfRides.get(i).startX) + Math.abs(listOfRides.get(i).goalY - listOfRides.get(i).startY);
               currentTimeTaken += distanceOfTravel;
               currentReward += distanceOfTravel;
-              if (currentTimeTaken + timeStepsTaken > maxTimeSteps) {
+              if (currentTimeTaken + timeStepsTaken > listOfRides.get(i).latestFinish) {
                 currentReward = 0;
               }
 
@@ -121,7 +121,7 @@ public class SimulatorBrain {
         int distanceOfTravel = Math.abs(listOfRides.get(i).goalX - listOfRides.get(i).startX) + Math.abs(listOfRides.get(i).goalY - listOfRides.get(i).startY);
         currentTimeTaken += distanceOfTravel;
         currentReward += distanceOfTravel;
-        if (currentTimeTaken + startTime > maxTimeSteps) {
+        if (currentTimeTaken + startTime > listOfRides.get(i).latestFinish) {
           currentReward = 0;
         }
 
