@@ -51,7 +51,7 @@ public class SimulatorBrain {
               }
 
               // getting to the finishing point
-              int distanceOfTravel = Math.abs(listOfRides.goalX - listOfRides.get(i).startX) + Math.abs(listOfRides.goalY - listOfRides.get(i).startY);
+              int distanceOfTravel = Math.abs(listOfRides.get(i).goalX - listOfRides.get(i).startX) + Math.abs(listOfRides.get(i).goalY - listOfRides.get(i).startY);
               currentTimeTaken += distanceOfTravel;
               currentReward += distanceOfTravel;
               if (currentTimeTaken + timeStepsTaken > maxTimeSteps) {
@@ -60,6 +60,12 @@ public class SimulatorBrain {
 
               double currentRewardPerTimeStep = (double)currentReward / (double)currentTimeTaken;
               rewardPerTimeStep.add(currentRewardPerTimeStep);
+
+              currentReward += rewardOfRide(specificCar, 1, timeStepsTaken + currentTimeTaken);
+
+              ridesConsidered = new ArrayList<>();
+              ridesConsidered.add(i);
+              rewardsOfRides.add(currentReward);
             }
 
 
@@ -82,5 +88,56 @@ public class SimulatorBrain {
       }
       timeStepsTaken++;
     }
+  }
+
+
+
+  public ArrayList<Integer> ridesConsidered;
+
+  public double rewardOfRide(Vehicle specificCar, int depthLeft, int startTime) {
+    double highestRewardPerTimeStep = 0;
+    double highestReward = 0;
+
+    if (depthLeft != 0) {
+      for (int i = 0; i < listOfRides.size(); i++) {
+        if (ridesConsidered.contains(i)) {
+          continue;
+        }
+
+        int currentTimeTaken = 0;
+        int currentReward = 0;
+
+        // getting to the starting point
+        currentTimeTaken += (Math.abs(specificCar.posX - listOfRides.get(i).startX) + Math.abs(specificCar.posY - listOfRides.get(i).startY)); // distance to start
+        if (currentTimeTaken + startTime <= listOfRides.get(i).earliestStart) {
+          currentReward += bonusReward;
+          currentTimeTaken = listOfRides.get(i).earliestStart - startTime;
+        }
+
+        // getting to the finishing point
+        int distanceOfTravel = Math.abs(listOfRides.get(i).goalX - listOfRides.get(i).startX) + Math.abs(listOfRides.get(i).goalY - listOfRides.get(i).startY);
+        currentTimeTaken += distanceOfTravel;
+        currentReward += distanceOfTravel;
+        if (currentTimeTaken + startTime > maxTimeSteps) {
+          currentReward = 0;
+        }
+
+        double currentRewardPerTimeStep = (double)currentReward / (double)currentTimeTaken;
+
+        ridesConsidered.add(i);
+        currentReward += rewardOfRide(specificCar, depthLeft - 1, startTime + currentTimeTaken);
+        ridesConsidered.remove(ridesConsidered.size() - 1);
+
+        if (currentReward > highestReward) {
+          highestReward = currentReward;
+        }
+
+        //if (currentRewardPerTimeStep > highestRewardPerTimeStep) {
+        //  highestRewardPerTimeStep = currentRewardPerTimeStep;
+        //}
+      }
+    }
+
+    return highestReward;
   }
 }
