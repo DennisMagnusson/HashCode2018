@@ -24,6 +24,7 @@ public class Test {
 
     String firstLine = lines.remove(0);
     ArrayList<Ride> data = new ArrayList<>();
+    int index = 0;
     for(String line : lines) {
       ArrayList<Integer> a = new ArrayList<>();
       String[] l = line.split(" ");
@@ -35,9 +36,9 @@ public class Test {
       int earliestStart = Integer.parseInt(l[4]);
       int latestFinish = Integer.parseInt(l[5]);
 
-      Ride v = new Ride(startx, starty, goalx, goaly, earliestStart, latestFinish);
-      
+      Ride v = new Ride(index, startx, starty, goalx, goaly, earliestStart, latestFinish);
       data.add(v);
+      index++;
     }
 
     String[] firstLineInts = firstLine.split(" ");
@@ -48,17 +49,22 @@ public class Test {
     int bonus = Integer.parseInt(firstLineInts[4]);
     int timeSteps = Integer.parseInt(firstLineInts[5]);
 
+    SimulatorBrain brain = new SimulatorBrain(numVehicles, data, timeSteps);
+
+
     //writeToFile(a); 
   }
 
 
   public static void writeToFile(ArrayList<Integer>[] a) {
+    int q = 1;
     for(ArrayList<Integer> k: a) {
+      System.out.print(q+" ");
       for(int i : k) {
         System.out.print(i+" ");
       }
+      q++;
       System.out.println();
     }
   }
-
 }
