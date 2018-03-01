@@ -9,6 +9,7 @@ public class Vehicle {
   }
 
   public void assignRide(int startX, int startY, int goalX, int goalY, int earliestStart) {
+    this.driving = true;
     this.startX = startX;
     this.startY = startY;
     this.goalX = goalX;
