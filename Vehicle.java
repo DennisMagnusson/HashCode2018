@@ -10,6 +10,7 @@ public class Vehicle {
   public ArrayList<Integer> history; // the index of the ride that this vehicle drove
 
   public Vehicle() {
+    history = new ArrayList<Integer>();
     posX = 0;
     posY = 0;
   }
