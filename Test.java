@@ -40,6 +40,14 @@ public class Test {
       data.add(v);
     }
 
+    String[] firstLineInts = firstLine.split(" ");
+    int rows = Integer.parseInt(firstLineInts[0]);
+    int cols = Integer.parseInt(firstLineInts[1]);
+    int numVehicles = Integer.parseInt(firstLineInts[2]);
+    int numRides = Integer.parseInt(firstLineInts[3]);
+    int bonus = Integer.parseInt(firstLineInts[4]);
+    int timeSteps = Integer.parseInt(firstLineInts[5]);
+
     //writeToFile(a); 
   }
 
