@@ -1,4 +1,4 @@
-public class Ride implements Comparable<Ride>{
+ public class Ride implements Comparable<Ride>{
   public int startX, startY, goalX, goalY, earliestStart, latestFinish, index;
 
   public Ride(int index, int startX, int startY, int goalX, int goalY, int earliestStart, int latestFinish) {
